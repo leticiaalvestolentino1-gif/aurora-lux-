@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6f1">
+  <meta name="description" content="Aurora Lux Joias — joias delicadas para celebrar quem você é. Descubra peças criadas para durar.">
+  <title>Aurora Lux Joias — Seu brilho, sua essência</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f8f6f1;
+      --white: #fffefa;
+      --ink: #211f1b;
+      --muted: #77736a;
+      --gold: #a9854c;
+      --gold-light: #c6a66d;
+      --line: #e7e2d8;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    body.no-scroll { overflow: hidden; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+    button { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1280px, calc(100% - 80px)); margin-inline: auto; }
+    .announcement {
+      padding: 10px 20px;
+      background: var(--ink);
+      color: #f8f4e9;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .site-header { position: relative; z-index: 5; background: var(--paper); }
+    .header-inner {
+      height: 86px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .main-nav, .header-actions { display: flex; align-items: center; gap: 28px; }
+    .main-nav a, .header-actions button {
+      padding: 8px 0;
+      border: 0;
+      background: none;
+      color: #565249;
+      font-size: 11px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color .2s ease;
+    }
+    .main-nav a:hover, .header-actions button:hover { color: var(--gold); }
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+    }
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 23px;
+      letter-spacing: .12em;
+      line-height: 1;
+    }
+    .brand-sub {
+      color: var(--gold);
+      font-size: 8px;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+    }
+    .header-actions { justify-content: flex-end; gap: 20px; }
+    .icon-button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 30px;
+      min-height: 34px;
+    }
+    .icon-button svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+    .cart-count {
+      position: absolute;
+      top: 0;
+      right: -7px;
+      display: grid;
+      width: 16px;
+      height: 16px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gold);
+      color: white;
+      font-size: 9px;
+    }
+    .menu-toggle { display: none !important; }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      min-height: 610px;
+      overflow: hidden;
+      background: #e7ded1;
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 72px max(40px, calc((100vw - 1280px) / 2));
+      padding-right: 5%;
+      background: linear-gradient(110deg, #eee8de 0%, #eee8de 82%, rgba(238,232,222,.88) 100%);
+    }
+    .eyebrow, .section-label {
+      margin: 0 0 18px;
+      color: var(--gold);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 520px;
+      margin-bottom: 22px;
+      font-family: var(--serif);
+      font-size: clamp(55px, 6.4vw, 88px);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1.04;
+    }
+    h1 em { color: var(--gold); font-weight: 400; }
+    .hero-description {
+      max-width: 380px;
+      margin-bottom: 30px;
+      color: #6e695f;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 0 24px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fffefa;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .button:hover { border-color: var(--gold); background: var(--gold); }
+    .button .arrow { font-size: 16px; line-height: 0; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button.button-outline { border-color: var(--gold); background: transparent; color: var(--ink); }
+    .button.button-outline:hover { background: var(--gold); color: white; }
+    .hero-image {
+      min-height: 610px;
+      background: #cfc0ae url("https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1500&q=88") center 52% / cover no-repeat;
+    }
+    .hero-note {
+      position: absolute;
+      right: 34px;
+      bottom: 27px;
+      color: white;
+      font-size: 9px;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 8px #333;
+    }
+    .promise-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding-block: 26px;
+      border-bottom: 1px solid var(--line);
+    }
+    .promise {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      color: #565249;
+      font-size: 10px;
+      letter-spacing: .04em;
+    }
+    .promise + .promise { border-left: 1px solid var(--line); }
+    .promise svg { width: 18px; height: 18px; flex: 0 0 auto; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+
+    .section { padding-block: 92px; }
+    .section-heading { margin-bottom: 34px; text-align: center; }
+    .section-heading .section-label { margin-bottom: 13px; }
+    h2 {
+      margin-bottom: 12px;
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 51px);
+      font-weight: 400;
+      letter-spacing: -.035em;
+    }
+    .section-intro { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 0 0 32px;
+    }
+    .filter-button {
+      padding: 10px 16px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      font-size: 10px;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .filter-button:hover, .filter-button[aria-pressed="true"] {
+      border-color: var(--gold);
+      color: var(--ink);
+    }
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .product-card { min-width: 0; }
+    .product-image-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 4.8;
+      background: #eee9e0;
+    }
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s cubic-bezier(.2,.7,.3,1);
+    }
+    .product-card:hover .product-image { transform: scale(1.045); }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 7px 9px;
+      background: rgba(255,254,250,.92);
+      color: #615c52;
+      font-size: 8px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .favorite-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,254,250,.88);
+      cursor: pointer;
+    }
+    .favorite-button svg { width: 17px; height: 17px; stroke: var(--ink); fill: none; stroke-width: 1.5; }
+    .favorite-button[aria-pressed="true"] svg { fill: #a84d45; stroke: #a84d45; }
+    .quick-add {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      left: 10px;
+      min-height: 42px;
+      border: 0;
+      background: rgba(255,254,250,.95);
+      color: var(--ink);
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(7px);
+      transition: opacity .2s ease, transform .2s ease, background .2s ease;
+    }
+    .product-card:hover .quick-add, .quick-add:focus-visible { opacity: 1; transform: translateY(0); }
+    .quick-add:hover { background: var(--ink); color: white; }
+    .product-info { padding: 15px 2px 0; }
+    .product-meta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .product-name { margin: 0 0 6px; font-family: var(--serif); font-size: 17px; font-weight: 400; }
+    .product-name-button {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .product-name-button:hover { color: var(--gold); }
+    .product-description { display: none; }
+    .product-kind { margin: 0; color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+    .product-price { flex-shrink: 0; padding-top: 3px; font-size: 11px; }
+    .empty-products { grid-column: 1 / -1; padding: 50px 0; color: var(--muted); text-align: center; font-size: 13px; }
+    .curated-section { padding-top: 72px; padding-bottom: 0; }
+    .curated-section .section-heading { margin-bottom: 28px; }
+    .curated-section .product-grid { grid-template-columns: repeat(4, 1fr); }
+    .curated-link { display: table; margin: 24px auto 0; }
+    .offer-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 auto 28px;
+      padding: 15px 20px;
+      background: #eee8de;
+      color: #635742;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: .04em;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 460px;
+      background: #e9e2d7;
+    }
+    .story-image {
+      min-height: 420px;
+      background: #cfc6b9 url("https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=85") center 50% / cover no-repeat;
+    }
+    .story-copy { display: flex; flex-direction: column; justify-content: center; padding: 70px clamp(36px, 8vw, 120px); }
+    .story-copy h2 { max-width: 440px; margin-bottom: 18px; }
+    .story-copy p:not(.section-label) { max-width: 420px; margin-bottom: 24px; color: #6e695f; font-size: 12px; line-height: 1.95; }
+    .text-link {
+      align-self: flex-start;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--gold);
+      color: var(--ink);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .newsletter { padding-block: 76px; text-align: center; }
+    .newsletter h2 { margin-bottom: 10px; font-size: 39px; }
+    .newsletter > p:not(.section-label) { margin-bottom: 15px; color: var(--muted); font-size: 11px; }
+    .contact-details { margin: 0 auto 22px; color: #5d584e; font-size: 10px; line-height: 1.8; }
+    .contact-details p { margin: 3px 0; }
+    .contact-form { display: grid; width: min(500px, 100%); gap: 12px; margin: 0 auto; text-align: left; }
+    .contact-form label { display: grid; gap: 6px; color: #5d584e; font-size: 10px; }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: var(--white);
+      color: var(--ink);
+      font: inherit;
+      font-size: 11px;
+      resize: vertical;
+    }
+    .contact-form .button { justify-self: center; }
+    .newsletter-status { min-height: 18px; padding-top: 8px; color: var(--gold); font-size: 10px; }
+    footer { background: #24221e; color: #f8f6f1; }
+    .footer-main { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 35px; padding-block: 54px; }
+    .footer-brand .brand { align-items: flex-start; }
+    .footer-brand .brand-name { font-size: 20px; }
+    .footer-brand .brand-sub { color: var(--gold-light); }
+    .footer-brand p { max-width: 260px; margin: 18px 0 0; color: #b9b4aa; font-size: 10px; line-height: 1.8; }
+    .footer-column h3 { margin: 0 0 16px; color: #fffefa; font-size: 9px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
+    .footer-column a, .footer-column p { display: block; margin: 0 0 11px; color: #b9b4aa; font-size: 10px; line-height: 1.6; text-decoration: none; }
+    .footer-column a:hover { color: var(--gold-light); }
+    .faq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-bottom: 26px; }
+    .faq details { padding: 13px 14px; border: 1px solid #45423c; }
+    .faq summary { color: #f8f6f1; font-size: 10px; cursor: pointer; }
+    .faq details p { margin: 10px 0 0; color: #b9b4aa; font-size: 9px; line-height: 1.7; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 18px; padding-block: 17px; border-top: 1px solid #45423c; color: #aaa59b; font-size: 9px; }
+    .footer-bottom p { margin: 0; }
+
+    .overlay {
+      position: fixed;
+      z-index: 20;
+      inset: 0;
+      background: rgba(26,24,20,.48);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+    .overlay.is-open { opacity: 1; pointer-events: auto; }
+    .cart-drawer {
+      position: fixed;
+      z-index: 21;
+      top: 0;
+      right: 0;
+      display: flex;
+      width: min(440px, 100%);
+      height: 100%;
+      flex-direction: column;
+      background: var(--white);
+      transform: translateX(102%);
+      transition: transform .3s ease;
+    }
+    .cart-drawer.is-open { transform: translateX(0); }
+    .cart-header { display: flex; align-items: center; justify-content: space-between; padding: 25px 26px; border-bottom: 1px solid var(--line); }
+    .cart-header h2 { margin: 0; font-size: 27px; }
+    .close-button { display: grid; width: 36px; height: 36px; place-items: center; border: 0; background: transparent; font-size: 24px; cursor: pointer; }
+    .cart-items { flex: 1; overflow-y: auto; padding: 8px 26px; }
+    .cart-empty { padding: 50px 0; color: var(--muted); text-align: center; font-size: 12px; line-height: 1.8; }
+    .cart-item { display: grid; grid-template-columns: 82px 1fr auto; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .cart-item img { width: 82px; height: 96px; object-fit: cover; background: #eee9e0; }
+    .cart-item h3 { margin: 4px 0 6px; font-family: var(--serif); font-size: 15px; font-weight: 400; }
+    .cart-item p { margin: 0; color: var(--muted); font-size: 10px; }
+    .quantity-controls { display: inline-flex; align-items: center; gap: 12px; margin-top: 12px; border: 1px solid var(--line); }
+    .quantity-controls button { width: 27px; height: 26px; border: 0; background: transparent; cursor: pointer; }
+    .quantity-controls span { min-width: 10px; text-align: center; font-size: 10px; }
+    .cart-item-end { display: flex; align-items: flex-end; flex-direction: column; justify-content: space-between; padding: 4px 0; font-size: 10px; }
+    .remove-item { border: 0; background: transparent; color: var(--muted); font-size: 9px; text-decoration: underline; cursor: pointer; }
+    .cart-footer { padding: 20px 26px 26px; border-top: 1px solid var(--line); }
+    .shipping-note { margin: 0 0 18px; color: var(--muted); font-size: 10px; text-align: center; }
+    .subtotal { display: flex; justify-content: space-between; margin-bottom: 18px; font-size: 12px; }
+    .cart-footer .button { width: 100%; }
+    .cart-disclaimer { margin: 11px 0 0; color: var(--muted); font-size: 9px; text-align: center; }
+    .gift-option { display: flex; align-items: flex-start; gap: 8px; margin: 0 0 14px; color: var(--muted); font-size: 9px; line-height: 1.5; }
+    .gift-option input { margin: 1px 0 0; accent-color: var(--gold); }
+    .coupon-form { margin-bottom: 16px; }
+    .coupon-form label { display: block; margin-bottom: 7px; color: var(--muted); font-size: 9px; }
+    .coupon-form > div { display: flex; border: 1px solid var(--line); }
+    .coupon-form input { width: 100%; min-width: 0; padding: 9px; border: 0; outline-color: var(--gold); background: transparent; font-size: 10px; }
+    .coupon-form button { padding: 0 12px; border: 0; background: var(--ink); color: white; font-size: 9px; cursor: pointer; }
+    #couponStatus { display: block; min-height: 14px; padding-top: 4px; color: var(--gold); font-size: 9px; }
+    .subtotal.discount-row { color: #557253; }
+    .subtotal.total-row { padding-top: 13px; border-top: 1px solid var(--line); font-weight: 700; }
+    .details-dialog {
+      width: min(780px, calc(100% - 32px));
+      max-width: none;
+      padding: 0;
+      border: 0;
+      background: var(--white);
+      color: var(--ink);
+    }
+    .details-dialog::backdrop { background: rgba(26,24,20,.58); }
+    .details-content { display: grid; grid-template-columns: 1fr 1fr; min-height: 400px; }
+    .details-image { width: 100%; height: 100%; min-height: 400px; object-fit: cover; background: #eee9e0; }
+    .details-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 42px; }
+    .details-close { position: absolute; top: 10px; right: 12px; background: rgba(255,254,250,.85); }
+    .details-category { margin-bottom: 12px; color: var(--gold); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }
+    .details-copy h2 { margin-bottom: 14px; font-size: 34px; }
+    .details-description { margin: 0 0 22px; color: var(--muted); font-size: 12px; line-height: 1.9; }
+    .details-price { margin-bottom: 22px; font-size: 15px; }
+    .toast {
+      position: fixed;
+      z-index: 30;
+      right: 24px;
+      bottom: 24px;
+      max-width: calc(100% - 48px);
+      padding: 14px 18px;
+      background: var(--ink);
+      color: white;
+      font-size: 11px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .toast.is-visible { opacity: 1; transform: translateY(0); }
+    .mobile-search { display: none; padding-block: 12px; }
+    .mobile-search input { width: 100%; padding: 10px 12px; border: 1px solid var(--line); background: var(--white); font-size: 11px; }
+
+    @media (max-width: 900px) {
+      .wrap { width: min(100% - 48px, 720px); }
+      .header-inner { height: 76px; grid-template-columns: 1fr auto 1fr; }
+      .main-nav { gap: 17px; }
+      .main-nav a { font-size: 10px; }
+      .header-actions { gap: 13px; }
+      .hero { min-height: 540px; grid-template-columns: .9fr 1.1fr; }
+      .hero-copy { padding-left: max(24px, calc((100vw - 720px) / 2)); }
+      .hero-image { min-height: 540px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
+      .curated-section .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .quick-add { opacity: 1; transform: none; }
+      .story-copy { padding: 55px 38px; }
+      .footer-main { grid-template-columns: 1.3fr 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: calc(100% - 36px); }
+      .announcement { padding-block: 9px; font-size: 8px; letter-spacing: .12em; }
+      .header-inner { height: 68px; grid-template-columns: 1fr auto 1fr; }
+      .menu-toggle { display: inline-flex !important; justify-self: start; }
+      .brand-name { font-size: 19px; }
+      .brand-sub { font-size: 7px; }
+      .header-actions { gap: 10px; }
+      .main-nav {
+        position: absolute;
+        top: 68px;
+        right: 0;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 24px 20px;
+        border-bottom: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .main-nav.is-open { display: flex; }
+      .main-nav a { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 11px; }
+      .hero { display: flex; min-height: auto; flex-direction: column; }
+      .hero-copy { order: 1; padding: 55px 26px 48px; background: #eee8de; }
+      .hero h1 { max-width: 390px; margin-bottom: 16px; font-size: clamp(53px, 14vw, 72px); }
+      .hero-description { max-width: 330px; margin-bottom: 23px; font-size: 12px; }
+      .hero-actions { gap: 9px; }
+      .hero-actions .button { padding-inline: 13px; font-size: 8px; }
+      .hero-image { order: 2; min-height: 360px; background-position: center 48%; }
+      .hero-note { right: 16px; bottom: 14px; font-size: 8px; }
+      .button { min-height: 45px; padding-inline: 19px; font-size: 9px; }
+      .promise-row { grid-template-columns: 1fr; padding-block: 10px; }
+      .promise { justify-content: flex-start; padding: 11px 10px; font-size: 9px; }
+      .promise + .promise { border-top: 1px solid var(--line); border-left: 0; }
+      .promise svg { width: 16px; height: 16px; }
+      .section { padding-block: 65px; }
+      .section-heading { margin-bottom: 26px; }
+      h2 { font-size: 39px; }
+      .section-intro { max-width: 300px; margin-inline: auto; font-size: 11px; }
+      .filters { gap: 2px; margin-bottom: 24px; }
+      .filter-button { padding: 9px 10px; font-size: 9px; }
+      .product-grid { gap: 26px 11px; }
+      .curated-section { padding-top: 52px; }
+      .product-image-wrap { aspect-ratio: 4 / 5; }
+      .product-badge { top: 8px; left: 8px; padding: 6px 7px; font-size: 7px; }
+      .favorite-button { top: 7px; right: 7px; width: 30px; height: 30px; }
+      .quick-add { right: 6px; bottom: 6px; left: 6px; min-height: 37px; font-size: 8px; }
+      .product-info { padding-top: 11px; }
+      .product-name { font-size: 15px; }
+      .product-kind { font-size: 8px; }
+      .product-price { font-size: 10px; }
+      .details-content { grid-template-columns: 1fr; }
+      .details-image { min-height: 0; height: 260px; }
+      .details-copy { padding: 27px; }
+      .details-copy h2 { font-size: 29px; }
+      .details-close { top: 8px; right: 8px; }
+      .story { grid-template-columns: 1fr; }
+      .story-image { min-height: 340px; }
+      .story-copy { padding: 48px 28px 55px; }
+      .story-copy h2 { font-size: 40px; }
+      .newsletter { padding-block: 60px; }
+      .newsletter h2 { font-size: 34px; }
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 28px 18px; padding-block: 42px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .faq { grid-template-columns: 1fr; padding-bottom: 20px; }
+      .footer-bottom { flex-direction: column; font-size: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body id="topo">
+  <div class="announcement">Frete grátis acima de R$ 199,90 · demonstração com até 6x sem juros</div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <button class="icon-button menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#colecao">Joias</a>
+        <a href="#favoritos">Favoritos</a>
+        <a href="#historia">Nossa essência</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="brand" href="#topo" aria-label="Aurora Lux Joias — início">
+        <span class="brand-name">AURORA LUX</span>
+        <span class="brand-sub">Joias · Desde sempre, você</span>
+      </a>
+      <div class="header-actions">
+        <button class="icon-button search-action" type="button" aria-label="Buscar joias" id="searchToggle">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+        </button>
+        <button class="icon-button" type="button" aria-label="Abrir sacola" id="openCart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+          <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-search wrap" id="mobileSearch">
+      <input type="search" id="searchInput" placeholder="Buscar uma joia..." aria-label="Buscar produtos">
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Coleção atemporal · 2026</p>
+        <h1 id="hero-title">Descubra o brilho que existe em você.</h1>
+        <p class="hero-description">Joias que guardam histórias e acompanham você em todos os momentos. Descubra peças feitas para iluminar o que já existe de único.</p>
+        <div class="hero-actions">
+          <a class="button" href="#lancamentos">Comprar agora <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="button button-outline" href="#colecao">Explorar coleções</a>
+        </div>
+      </div>
+      <div class="hero-image" role="img" aria-label="Joias douradas delicadas em composição elegante"></div>
+      <span class="hero-note">A beleza de ser você</span>
+    </section>
+
+    <section class="wrap promise-row" aria-label="Vantagens Aurora Lux">
+      <div class="promise">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span>Garantia de 1 ano em todas as peças</span>
+      </div>
+      <div class="promise">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7z"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="18" cy="18.5" r="1.5"/></svg>
+        <span>Frete grátis acima de R$ 199,90</span>
+      </div>
+      <div class="promise">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z"/></svg>
+        <span>Feitas com cuidado, para durar</span>
+      </div>
+    </section>
+
+    <section class="section wrap curated-section" id="lancamentos" aria-labelledby="launch-title">
+      <div class="section-heading">
+        <p class="section-label">Acabaram de chegar</p>
+        <h2 id="launch-title">Lançamentos</h2>
+        <p class="section-intro">Novas formas de expressar aquilo que faz você única.</p>
+      </div>
+      <div class="product-grid" id="launchGrid"></div>
+      <a class="text-link curated-link" href="#colecao">Ver todas as peças <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="section wrap curated-section" aria-labelledby="best-sellers-title">
+      <div class="section-heading">
+        <p class="section-label">Queridinhos Aurora</p>
+        <h2 id="best-sellers-title">Mais vendidos</h2>
+        <p class="section-intro">As peças que conquistaram um lugar especial.</p>
+      </div>
+      <div class="product-grid" id="bestSellersGrid"></div>
+    </section>
+
+    <section class="section wrap curated-section" aria-labelledby="offers-title">
+      <div class="section-heading">
+        <p class="section-label">Um brilho a mais</p>
+        <h2 id="offers-title">Ofertas especiais</h2>
+        <p class="section-intro">Uma seleção especial para presentear — ou se presentear.</p>
+      </div>
+      <div class="offer-banner">10% de desconto demonstrativo na primeira compra com AURORA10 · frete grátis acima de R$ 199,90</div>
+      <div class="product-grid" id="offersGrid"></div>
+      <p class="section-intro" style="margin:20px auto 0;text-align:center">Embalagem para presente disponível como opção ilustrativa no carrinho. Promoções fictícias, sem valor comercial.</p>
+    </section>
+
+    <section class="section wrap" id="colecao" aria-labelledby="collection-title">
+      <div class="section-heading">
+        <p class="section-label">Escolhas especiais</p>
+        <h2 id="collection-title">Peças para chamar de suas</h2>
+        <p class="section-intro">Design delicado, acabamento impecável e um brilho que é só seu.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar por categoria">
+        <button class="filter-button" type="button" data-category="Todas" aria-pressed="true">Todas as peças</button>
+        <button class="filter-button" type="button" data-category="Colares" aria-pressed="false">Colares</button>
+        <button class="filter-button" type="button" data-category="Brincos" aria-pressed="false">Brincos</button>
+        <button class="filter-button" type="button" data-category="Anéis" aria-pressed="false">Anéis</button>
+        <button class="filter-button" type="button" data-category="Pulseiras" aria-pressed="false">Pulseiras</button>
+        <button class="filter-button" type="button" data-category="Conjuntos" aria-pressed="false">Conjuntos</button>
+      </div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="section wrap curated-section" id="favoritos" aria-labelledby="favorites-title">
+      <div class="section-heading">
+        <p class="section-label">Guardadas com carinho</p>
+        <h2 id="favorites-title">Sua lista de favoritos</h2>
+        <p class="section-intro">Toque no coração de uma peça para guardá-la aqui.</p>
+      </div>
+      <div class="product-grid" id="favoritesGrid"></div>
+    </section>
+
+    <section class="story" id="historia" aria-labelledby="story-title">
+      <div class="story-image" role="img" aria-label="Detalhe de anel dourado com pedra preciosa"></div>
+      <div class="story-copy">
+        <p class="section-label">O cuidado em cada detalhe</p>
+        <h2 id="story-title">Feita para celebrar você.</h2>
+        <p>A Aurora Lux Joias nasceu para celebrar a beleza e a personalidade de cada pessoa. Nossa coleção reúne peças delicadas e sofisticadas, pensadas para transformar momentos especiais em lembranças inesquecíveis. Acreditamos que cada detalhe tem seu próprio brilho.</p>
+        <a class="text-link" href="#colecao">Conheça nossas peças <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="newsletter" id="contato" aria-labelledby="newsletter-title">
+      <p class="section-label">Estamos aqui para você</p>
+      <h2 id="newsletter-title">Fale com a Aurora.</h2>
+      <p>Este formulário é demonstrativo. Sua mensagem não será enviada.</p>
+      <div class="contact-details">
+        <p><strong>E-mail fictício:</strong> contato@auroralux.example</p>
+        <p><strong>Telefone fictício:</strong> (11) 90000-1234</p>
+        <p><strong>Endereço demonstrativo:</strong> Rua das Flores, 100 — São Paulo, SP.</p>
+        <p><strong>Instagram demonstrativo:</strong> @auroraluxjoias</p>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <label>Seu nome<input type="text" name="name" autocomplete="name" required></label>
+        <label>Seu e-mail<input type="email" name="email" autocomplete="email" required></label>
+        <label>Sua mensagem<textarea name="message" rows="3" required></textarea></label>
+        <button class="button" type="submit">Enviar mensagem demonstrativa <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="newsletter-status" id="contactStatus" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="#topo" aria-label="Aurora Lux Joias — início">
+          <span class="brand-name">AURORA LUX</span>
+          <span class="brand-sub">Joias · Seu brilho, sua essência</span>
+        </a>
+        <p>A Aurora Lux celebra a beleza e a personalidade de cada pessoa com joias delicadas e sofisticadas. Marca e dados inteiramente fictícios.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Categorias</h3>
+        <a href="#colecao" data-footer-category="Colares">Colares</a>
+        <a href="#colecao" data-footer-category="Anéis">Anéis</a>
+        <a href="#colecao" data-footer-category="Brincos">Brincos</a>
+        <a href="#colecao" data-footer-category="Pulseiras">Pulseiras</a>
+        <a href="#colecao" data-footer-category="Conjuntos">Conjuntos</a>
+      </div>
+      <div class="footer-column">
+        <h3>Ajuda & informações</h3>
+        <a href="#perguntas">Perguntas frequentes</a>
+        <a href="#perguntas">Trocas e devoluções demonstrativas</a>
+        <a href="#perguntas">Informações de entrega</a>
+        <a href="#historia">Nossa essência</a>
+      </div>
+      <div class="footer-column">
+        <h3>Contato fictício</h3>
+        <p>contato@auroralux.example</p>
+        <p>(11) 90000-1234</p>
+        <p>Rua das Flores, 100<br>São Paulo, SP</p>
+        <p>Instagram: @auroraluxjoias<br>(perfil demonstrativo)</p>
+      </div>
+    </div>
+    <section class="wrap faq" id="perguntas" aria-label="Informações demonstrativas">
+      <details><summary>Como funcionam as trocas e devoluções?</summary><p>Esta loja é fictícia. A política é apenas ilustrativa e não há compras ou trocas reais.</p></details>
+      <details><summary>Qual é o prazo de entrega?</summary><p>Prazos e condições de entrega são demonstrativos. Nenhum pedido será enviado.</p></details>
+      <details><summary>As promoções são reais?</summary><p>Não. Cupom, frete grátis e embalagem para presente são recursos fictícios deste projeto demonstrativo.</p></details>
+    </section>
+    <div class="wrap footer-bottom">
+      <p>© 2026 Aurora Lux Joias. Todos os direitos reservados.</p>
+      <p>Projeto fictício · Nenhuma venda, mensagem ou pagamento é processado de verdade.</p>
+    </div>
+  </footer>
+
+  <div class="overlay" id="cartOverlay" aria-hidden="true"></div>
+  <dialog class="details-dialog" id="detailsDialog" aria-labelledby="detailsTitle">
+    <button class="close-button details-close" type="button" id="closeDetails" aria-label="Fechar detalhes">×</button>
+    <div class="details-content" id="detailsContent"></div>
+  </dialog>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+    <div class="cart-header">
+      <h2 id="cartTitle">Sua sacola <span id="cartTitleCount">(0)</span></h2>
+      <button class="close-button" type="button" id="closeCart" aria-label="Fechar sacola">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <p class="shipping-note" id="shippingNote">Frete grátis acima de R$ 199,90 (promoção fictícia)</p>
+      <label class="gift-option"><input type="checkbox" id="giftWrap"> Adicionar embalagem para presente (opção ilustrativa)</label>
+      <form class="coupon-form" id="couponForm">
+        <label for="couponInput">Cupom demonstrativo da primeira compra</label>
+        <div><input id="couponInput" name="coupon" type="text" placeholder="AURORA10"><button type="submit">Aplicar</button></div>
+        <span id="couponStatus" role="status" aria-live="polite"></span>
+      </form>
+      <div class="subtotal"><span>Subtotal</span><strong id="cartSubtotal">R$ 0,00</strong></div>
+      <div class="subtotal discount-row" id="discountRow" hidden><span>Desconto AURORA10</span><strong id="cartDiscount">− R$ 0,00</strong></div>
+      <div class="subtotal"><span>Entrega</span><strong id="cartShipping">R$ 0,00</strong></div>
+      <div class="subtotal total-row"><span>Total demonstrativo</span><strong id="cartTotal">R$ 0,00</strong></div>
+      <button class="button" type="button" id="checkoutButton">Finalizar compra <span aria-hidden="true">→</span></button>
+      <p class="cart-disclaimer">Checkout simulado. Não informe dados bancários; nenhum pagamento será realizado.</p>
+    </div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const products = [
+      { id: 1, name: "Colar Luz Dourada", category: "Colares", price: 129.90, image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=750&q=82", badge: "Mais vendido", launch: true, bestseller: true, offer: true, description: "Um colar delicado com acabamento dourado e brilho sutil. Uma peça versátil para iluminar produções do dia a dia e ocasiões especiais." },
+      { id: 2, name: "Anel Elegance", category: "Anéis", price: 89.90, image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=750&q=82", badge: "Oferta especial", launch: false, bestseller: true, offer: true, description: "Design elegante e minimalista com linhas suaves. Um anel delicado que combina facilmente com outras joias." },
+      { id: 3, name: "Brinco Aurora", category: "Brincos", price: 69.90, image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=750&q=82", badge: "Lançamento", launch: true, bestseller: true, offer: false, description: "Brincos leves inspirados na primeira luz do dia, com um toque dourado que completa o visual com delicadeza." },
+      { id: 4, name: "Pulseira Encanto", category: "Pulseiras", price: 99.90, image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=750&q=82", badge: "Oferta especial", launch: false, bestseller: false, offer: true, description: "Pulseira de elos delicados com acabamento luminoso. Um detalhe especial para usar sozinho ou em combinações." },
+      { id: 5, name: "Colar Coração Infinito", category: "Colares", price: 149.90, image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=750&q=82", badge: "Mais vendido", launch: false, bestseller: true, offer: false, description: "Um símbolo afetivo em uma composição atemporal. O pingente de coração infinito celebra conexões que permanecem." },
+      { id: 6, name: "Anel Solitário Cristal", category: "Anéis", price: 119.90, image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=750&q=82", badge: "Oferta especial", launch: true, bestseller: false, offer: true, description: "Anel solitário com cristal ilustrativo em destaque e aro delicado. Criado para marcar momentos cheios de significado." },
+      { id: 7, name: "Brinco Pérola Clássica", category: "Brincos", price: 79.90, image: "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=750&q=82", badge: "Mais vendido", launch: false, bestseller: true, offer: false, description: "A elegância clássica da pérola em uma peça versátil e delicada, perfeita para acompanhar qualquer ocasião." },
+      { id: 8, name: "Conjunto Bella", category: "Conjuntos", price: 199.90, image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=750&q=82", badge: "Lançamento", launch: true, bestseller: false, offer: true, description: "Conjunto demonstrativo com joias coordenadas e acabamento dourado. Uma escolha elegante para presentear ou celebrar você." }
+    ];
+    const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
+    const grid = document.getElementById("productGrid");
+    const productGrids = Array.from(document.querySelectorAll(".product-grid"));
+    const cart = new Map();
+    const favorites = new Set();
+    const cartDrawer = document.getElementById("cartDrawer");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const toast = document.getElementById("toast");
+    let activeCategory = "Todas";
+    let searchTerm = "";
+    let toastTimer;
+    let couponApplied = false;
+    let couponUsed = false;
+
+    function productCard(product) {
+      const favorite = favorites.has(product.id);
+      return `
+        <article class="product-card">
+          <div class="product-image-wrap">
+            <img class="product-image" src="${product.image}" alt="${product.name}" loading="lazy">
+            ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
+            <button class="favorite-button" type="button" data-favorite="${product.id}" aria-label="${favorite ? "Remover dos" : "Adicionar aos"} favoritos" aria-pressed="${favorite}">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"/></svg>
+            </button>
+            <button class="quick-add" type="button" data-add="${product.id}">Adicionar à sacola</button>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <div>
+                <h3 class="product-name"><button class="product-name-button" type="button" data-details="${product.id}">${product.name}</button></h3>
+                <p class="product-kind">${product.category}</p>
+                <p class="product-description">${product.description}</p>
+              </div>
+              <span class="product-price">${currency.format(product.price)}</span>
+            </div>
+          </div>
+        </article>`;
+    }
+
+    function renderProducts() {
+      const visible = products.filter((product) => {
+        const matchesCategory = activeCategory === "Todas" || product.category === activeCategory;
+        const matchesSearch = `${product.name} ${product.category} ${product.description}`.toLocaleLowerCase("pt-BR").includes(searchTerm);
+        return matchesCategory && matchesSearch;
+      });
+      grid.innerHTML = visible.length
+        ? visible.map(productCard).join("")
+        : '<p class="empty-products">Não encontramos peças com esse nome. Tente outra busca.</p>';
+    }
+
+    function renderCuratedProducts(targetId, predicate) {
+      const target = document.getElementById(targetId);
+      const visible = products.filter((product) => predicate(product)
+        && `${product.name} ${product.category} ${product.description}`.toLocaleLowerCase("pt-BR").includes(searchTerm));
+      target.innerHTML = visible.length
+        ? visible.map(productCard).join("")
+        : '<p class="empty-products">Nenhuma peça encontrada para esta busca.</p>';
+    }
+
+    function renderFavorites() {
+      const target = document.getElementById("favoritesGrid");
+      const visible = products.filter((product) => favorites.has(product.id)
+        && `${product.name} ${product.category} ${product.description}`.toLocaleLowerCase("pt-BR").includes(searchTerm));
+      target.innerHTML = visible.length
+        ? visible.map(productCard).join("")
+        : '<p class="empty-products">Sua lista está vazia. Salve uma peça tocando no coração.</p>';
+    }
+
+    function renderAllProducts() {
+      renderProducts();
+      renderCuratedProducts("launchGrid", (product) => product.launch);
+      renderCuratedProducts("bestSellersGrid", (product) => product.bestseller);
+      renderCuratedProducts("offersGrid", (product) => product.offer);
+      renderFavorites();
+    }
+
+    function showProductDetails(id) {
+      const product = products.find((item) => item.id === id);
+      document.getElementById("detailsContent").innerHTML = `
+        <img class="details-image" src="${product.image}" alt="${product.name}">
+        <div class="details-copy">
+          <p class="details-category">${product.category} · peça demonstrativa</p>
+          <h2 id="detailsTitle">${product.name}</h2>
+          <p class="details-description">${product.description}</p>
+          <strong class="details-price">${currency.format(product.price)}</strong>
+          <button class="button" type="button" data-add="${product.id}">Adicionar à sacola <span aria-hidden="true">→</span></button>
+        </div>`;
+      document.getElementById("detailsDialog").showModal();
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("is-visible");
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => toast.classList.remove("is-visible"), 2600);
+    }
+
+    function updateCart() {
+      const entries = Array.from(cart.entries());
+      const count = entries.reduce((sum, [, quantity]) => sum + quantity, 0);
+      const subtotal = entries.reduce((sum, [id, quantity]) => sum + products.find((product) => product.id === id).price * quantity, 0);
+      const roundedSubtotal = Math.round(subtotal * 100) / 100;
+      const discount = couponApplied && !couponUsed ? Math.round(roundedSubtotal * 10) / 100 : 0;
+      const shipping = roundedSubtotal >= 199.90 || roundedSubtotal === 0 ? 0 : 19.90;
+      const total = Math.max(0, Math.round((roundedSubtotal - discount + shipping) * 100) / 100);
+      document.getElementById("cartCount").textContent = String(count);
+      document.getElementById("cartTitleCount").textContent = `(${count})`;
+      document.getElementById("cartSubtotal").textContent = currency.format(roundedSubtotal);
+      document.getElementById("cartDiscount").textContent = `− ${currency.format(discount)}`;
+      document.getElementById("discountRow").hidden = discount === 0;
+      document.getElementById("cartShipping").textContent = shipping === 0 ? "Grátis" : currency.format(shipping);
+      document.getElementById("cartTotal").textContent = currency.format(total);
+      const remaining = Math.max(0, 199.90 - roundedSubtotal);
+      document.getElementById("shippingNote").textContent = remaining
+        ? `Faltam ${currency.format(remaining)} para ganhar frete grátis demonstrativo`
+        : "Você ganhou frete grátis demonstrativo!";
+      document.getElementById("couponInput").disabled = couponUsed;
+      document.querySelector("#couponForm button").disabled = couponUsed;
+      document.getElementById("couponStatus").textContent = couponUsed
+        ? "Cupom demonstrativo já utilizado neste checkout."
+        : couponApplied ? "Cupom AURORA10 aplicado: 10% de desconto fictício." : "";
+      const cartItems = document.getElementById("cartItems");
+      if (!entries.length) {
+        cartItems.innerHTML = '<p class="cart-empty">Sua sacola ainda está vazia.<br>Encontre uma joia para chamar de sua.</p>';
+        return;
+      }
+      cartItems.innerHTML = entries.map(([id, quantity]) => {
+        const product = products.find((item) => item.id === id);
+        return `
+          <article class="cart-item">
+            <img src="${product.image}" alt="">
+            <div>
+              <h3>${product.name}</h3>
+              <p>${currency.format(product.price)}</p>
+              <div class="quantity-controls" aria-label="Quantidade de ${product.name}">
+                <button type="button" data-quantity="${id}" data-change="-1" aria-label="Diminuir quantidade">−</button>
+                <span>${quantity}</span>
+                <button type="button" data-quantity="${id}" data-change="1" aria-label="Aumentar quantidade">+</button>
+              </div>
+            </div>
+            <div class="cart-item-end">
+              <strong>${currency.format(product.price * quantity)}</strong>
+              <button class="remove-item" type="button" data-remove="${id}">Remover</button>
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    function setCartOpen(open) {
+      cartDrawer.classList.toggle("is-open", open);
+      cartOverlay.classList.toggle("is-open", open);
+      cartDrawer.setAttribute("aria-hidden", String(!open));
+      cartOverlay.setAttribute("aria-hidden", String(!open));
+      document.body.classList.toggle("no-scroll", open);
+      if (open) document.getElementById("closeCart").focus();
+      else document.getElementById("openCart").focus();
+    }
+
+    function addToCart(id) {
+      cart.set(id, (cart.get(id) || 0) + 1);
+      updateCart();
+      showToast(`${products.find((product) => product.id === id).name} adicionada à sacola`);
+    }
+
+    document.querySelectorAll(".filter-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        activeCategory = button.dataset.category;
+        document.querySelectorAll(".filter-button").forEach((filter) => filter.setAttribute("aria-pressed", String(filter === button)));
+        renderProducts();
+      });
+    });
+
+    productGrids.forEach((productGrid) => {
+      productGrid.addEventListener("click", (event) => {
+        const addButton = event.target.closest("[data-add]");
+        const favoriteButton = event.target.closest("[data-favorite]");
+        const detailsButton = event.target.closest("[data-details]");
+        if (addButton) addToCart(Number(addButton.dataset.add));
+        if (favoriteButton) {
+          const id = Number(favoriteButton.dataset.favorite);
+          favorites.has(id) ? favorites.delete(id) : favorites.add(id);
+          renderAllProducts();
+          showToast(favorites.has(id) ? "Peça adicionada aos favoritos" : "Peça removida dos favoritos");
+        }
+        if (detailsButton) showProductDetails(Number(detailsButton.dataset.details));
+      });
+    });
+
+    document.getElementById("detailsContent").addEventListener("click", (event) => {
+      const addButton = event.target.closest("[data-add]");
+      if (!addButton) return;
+      addToCart(Number(addButton.dataset.add));
+      document.getElementById("detailsDialog").close();
+    });
+    document.getElementById("closeDetails").addEventListener("click", () => document.getElementById("detailsDialog").close());
+    document.getElementById("detailsDialog").addEventListener("click", (event) => {
+      if (event.target === event.currentTarget) event.currentTarget.close();
+    });
+
+    document.getElementById("cartItems").addEventListener("click", (event) => {
+      const quantityButton = event.target.closest("[data-quantity]");
+      const removeButton = event.target.closest("[data-remove]");
+      if (quantityButton) {
+        const id = Number(quantityButton.dataset.quantity);
+        const next = (cart.get(id) || 0) + Number(quantityButton.dataset.change);
+        if (next <= 0) cart.delete(id);
+        else cart.set(id, next);
+        updateCart();
+      }
+      if (removeButton) {
+        cart.delete(Number(removeButton.dataset.remove));
+        updateCart();
+      }
+    });
+
+    document.getElementById("openCart").addEventListener("click", () => setCartOpen(true));
+    document.getElementById("closeCart").addEventListener("click", () => setCartOpen(false));
+    cartOverlay.addEventListener("click", () => setCartOpen(false));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && cartDrawer.classList.contains("is-open")) setCartOpen(false);
+    });
+    document.getElementById("checkoutButton").addEventListener("click", () => {
+      if (!cart.size) {
+        showToast("Sua sacola está vazia");
+        return;
+      }
+      const orderTotal = document.getElementById("cartTotal").textContent;
+      const hasGiftWrap = document.getElementById("giftWrap").checked;
+      if (couponApplied) couponUsed = true;
+      cart.clear();
+      couponApplied = false;
+      document.getElementById("giftWrap").checked = false;
+      updateCart();
+      setCartOpen(false);
+      showToast(`Checkout simulado concluído · total demonstrativo ${orderTotal}${hasGiftWrap ? " · embalagem para presente selecionada" : ""}. Nenhum pagamento foi realizado.`);
+    });
+
+    document.getElementById("couponForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const code = document.getElementById("couponInput").value.trim().toLocaleUpperCase("pt-BR");
+      const status = document.getElementById("couponStatus");
+      if (couponUsed) {
+        status.textContent = "O cupom de primeira compra já foi utilizado nesta demonstração.";
+      } else if (!cart.size) {
+        status.textContent = "Adicione uma peça à sacola antes de aplicar o cupom.";
+      } else if (code !== "AURORA10") {
+        status.textContent = "Cupom não reconhecido. Confira o código demonstrativo.";
+      } else {
+        couponApplied = true;
+        status.textContent = "Cupom AURORA10 aplicado: 10% de desconto fictício.";
+        updateCart();
+      }
+    });
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector(".main-nav");
+    menuToggle.addEventListener("click", () => {
+      const open = !mainNav.classList.contains("is-open");
+      mainNav.classList.toggle("is-open", open);
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    });
+    mainNav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        mainNav.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menu");
+      }
+    });
+
+    const mobileSearch = document.getElementById("mobileSearch");
+    document.getElementById("searchToggle").addEventListener("click", () => {
+      const isVisible = mobileSearch.style.display === "block";
+      mobileSearch.style.display = isVisible ? "none" : "block";
+      if (!isVisible) document.getElementById("searchInput").focus();
+    });
+    document.getElementById("searchInput").addEventListener("input", (event) => {
+      searchTerm = event.target.value.trim().toLocaleLowerCase("pt-BR");
+      renderAllProducts();
+    });
+
+    document.querySelectorAll("[data-footer-category]").forEach((link) => {
+      link.addEventListener("click", () => {
+        activeCategory = link.dataset.footerCategory;
+        document.querySelectorAll(".filter-button").forEach((filter) => filter.setAttribute("aria-pressed", String(filter.dataset.category === activeCategory)));
+        renderProducts();
+      });
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.getElementById("contactStatus").textContent = "Mensagem demonstrativa registrada apenas nesta página. Nada foi enviado.";
+      event.currentTarget.reset();
+    });
+
+    renderAllProducts();
+    updateCart();
+  </script>
+</body>
+</html>
